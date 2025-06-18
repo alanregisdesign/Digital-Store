@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useOnboarding } from "../../contexts/OnboardingContext";
 import './index.css';
 
 const Header = () => {
+    const { startOnboarding } = useOnboarding();
+
     return(
         <>
             <header>
@@ -10,6 +13,13 @@ const Header = () => {
                         <input type="text" placeholder="Pesquisar produto"/>
                     </div>
                     <div className="acoes">
+                        <button 
+                            className="tour-btn"
+                            onClick={startOnboarding}
+                            title="Iniciar tour da plataforma"
+                        >
+                            Tour
+                        </button>
                         <Link to="/cadastro">Cadastre-se</Link>
                         <Link to="/login">Entrar</Link>
                         <h6>Carrinho</h6>
