@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useOnboarding } from "../../contexts/OnboardingContext";
 import './index.css';
 
 const Header = () => {
+    const { reopenOnboarding } = useOnboarding();
+
     return(
         <>
             <header>
@@ -12,6 +15,13 @@ const Header = () => {
                     <div className="acoes">
                         <Link to="/cadastro">Cadastre-se</Link>
                         <Link to="/login">Entrar</Link>
+                        <button 
+                            onClick={reopenOnboarding}
+                            className="help-button"
+                            title="Reabrir tutorial"
+                        >
+                            ❓
+                        </button>
                         <h6>Carrinho</h6>
                     </div>
                     <nav>
